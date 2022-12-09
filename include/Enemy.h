@@ -2,13 +2,17 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "../include/Player.h"
 
 class Enemy : public sf::CircleShape
 {
 public:
-    sf::Vector2f velocity; // access velocity.x, velocity.y
+    float maxSpeed;
     int health;
     Enemy();
 
-    void updatePosition();
+    void updatePosition(Player &player);
 };
+
+// function that returns an enemy with a random positoin
+Enemy randomEnemy();

@@ -1,7 +1,9 @@
 #include "../include/Enemy.h"
+#include "../include/Helpers.h"
+
 
 Enemy::Enemy()
-    : velocity(sf::Vector2f(1, 1)), health(100)
+    : maxSpeed(10), health(100)
 
 {
 
@@ -10,3 +12,25 @@ Enemy::Enemy()
     setPosition(100, 100);
     setOrigin(0, 0);
 }
+
+void Enemy::updatePosition(Player &player)
+{
+    sf::Vector2f difference = getPosition() - player.getPosition();
+    
+    float distance = std::sqrt(difference.x * difference.x + difference.y * difference.y);
+    distance = std::max(1.f, distance);
+
+    sf::Vector2f normal_direction = difference / distance;
+    float speed = std::min(maxSpeed, distance);
+
+    move(normal_direction * speed * 0.02f);
+}
+
+
+Enemy randomEnemy()
+{
+    Enemy enemy;
+    enemy.setPosition(sf::Vector2f(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
+    return enemy;
+}
+
