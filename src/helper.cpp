@@ -1,23 +1,41 @@
 #include <random>
 #include <iostream>
-// #include <SFML/Window.hpp>
-// #include <SFML/Graphics.hpp>
+// #include "../include/helper.h"
+
 
 
 const int WIDTH = 3000;
 const int HEIGHT = 2000;
 
-// sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Tower Defense");
-// window.setFramerateLimit(120);
-
-bool onMouse = false;
+bool onMouse;
 
 // player stats
-int money = 1000;
-int health = 100;
+int money;
+int health;
 
-int level = 1;
-bool levelFinished = false;
+int level;
+bool levelFinished;
+
+
+int numberOfEnemies;
+int enemyHealth;
+float enemySpeed;
+int moneyPerEnemy;
+
+float random(float min, float max);
+
+float bound(float input, float Min, float Max);
+
+// get distance between two points
+float dist(float aX, float aY, float bX, float bY);
+onMouse = false;
+
+// player stats
+money = 1000;
+health = 100;
+
+level = 1;
+levelFinished = false;
 
 // enemy stats
 
@@ -27,10 +45,10 @@ bool levelFinished = false;
 // int enemyHealth = 5;
 // float enemySpeed = 10;
 
-int numberOfEnemies = 10;
-int enemyHealth = 5;
-float enemySpeed = 0.5;
-int moneyPerEnemy = 1;
+numberOfEnemies = 10;
+enemyHealth = 5;
+enemySpeed = 0.5;
+moneyPerEnemy = 1;
 
 float random(float min, float max)
 {

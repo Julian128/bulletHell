@@ -2,8 +2,9 @@
 #include <thread>
 #include <chrono>
 #include <string>
-#include "turrets.cpp"
-#include "enemies.cpp"
+#include "include/enemies.h"
+#include "include/turrets.h"
+#include "include/helper.h"
 
 void drawText(sf::RenderWindow &window, std::string stringText, int x, int y, int size, sf::Color color);
 

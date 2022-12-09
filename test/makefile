@@ -1,6 +1,6 @@
 
 TARGET = main
-SOURCES = main.cpp src/turrets.cpp src/enemies.cpp src/helper.cpp
+SOURCES = main.cpp #src/turrets.cpp src/enemies.cpp
 
 
 LIBRARIES = -l sfml-graphics -l sfml-window -l sfml-system
