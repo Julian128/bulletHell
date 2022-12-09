@@ -4,9 +4,6 @@
 #include <SFML/Graphics.hpp>
 
 
-
-sf:Vector2f
-
 class Player : public sf::CircleShape
 {
 public:
@@ -20,7 +17,10 @@ public:
     // health of player
     int health;
 
+    // constructor
+    Player();
+    
     void move();
 
-}
+};
 
