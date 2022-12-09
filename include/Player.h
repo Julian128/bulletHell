@@ -9,7 +9,7 @@ class Player : public sf::CircleShape
 public:
 
     // position of player
-    sf::Vector2f position;
+    // sf::Vector2f position;
     
     // veliocity of player
     sf::Vector2f velocity; // access velocity.x, velocity.y
@@ -19,8 +19,10 @@ public:
 
     // constructor
     Player();
-    
-    void move();
 
+    void update(sf::Event &event, sf::RenderWindow &window);
+
+
+// 
 };
 
