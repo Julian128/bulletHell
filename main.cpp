@@ -7,48 +7,14 @@
 
 #include "include/Player.h"
 #include "include/Enemy.h"
+#include "include/GameRenderer.h"
 #include "include/Helpers.h"
-
-typedef sf::Color Color;
-const Color COLOR_GRAY(128, 128, 128);
-
-
-class GameRenderer : public sf::RenderWindow
-{
-public:
-
-    void renderWindow(Player &player, std::vector<Enemy> &enemies)
-    {
-        sf::Vector2f translation = player.getPosition();
-        translation -= sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);        
-
-        player.move(-translation);
-        draw(player);
-        player.move(translation);
-
-        // draw enemies
-        for (size_t i = 0; i < enemies.size(); i++)
-        {
-            enemies[i].move(-translation);
-            draw(enemies[i]);
-            enemies[i].move(translation);
-        }
-
-        // projectiles
-
-        // other objects
-    }
-
-
-    GameRenderer(sf::VideoMode mode, const sf::String &title, sf::Uint32 style = sf::Style::Default, const sf::ContextSettings &settings = sf::ContextSettings())
-        : sf::RenderWindow(mode, title, style, settings) {}
-};
 
 
 int main()
 {
     // Create the window
-    GameRenderer window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Reverse Bullet Hell");
+    GameRenderer window;
     window.setFramerateLimit(FRAMERATE);
     
 
@@ -90,10 +56,9 @@ int main()
         {
             enemies[i].updatePosition(player);
         }
+        
 
         // Display the contents of the window on the screen
-
-
         window.renderWindow(player, enemies);
 
         // refresh frame

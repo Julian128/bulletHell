@@ -8,7 +8,6 @@ Player::Player() : maxSpeed(200.f), health(100)
     setPosition(100, 100);
     setFillColor(sf::Color::Red);
     setOrigin(20, 20);
-    // speed = 0.005f;
 }
 
 void Player::update(sf::RenderWindow &window)

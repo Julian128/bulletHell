@@ -40,7 +40,7 @@ clean:
 run:
 	./${TARGET}
 	
-pushalltogit:
+push:
 	git add .
 	git commit -m "auto commit"
 	git push origin master

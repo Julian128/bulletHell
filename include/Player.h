@@ -7,9 +7,10 @@ class Player : public sf::CircleShape
 {
 
 public:
+    Player();
+    
     float maxSpeed;
     int health;
-    Player();
     void update(sf::RenderWindow &window);
 };
 

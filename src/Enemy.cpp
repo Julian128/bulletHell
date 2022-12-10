@@ -15,7 +15,7 @@ Enemy::Enemy()
 
 void Enemy::updatePosition(Player &player)
 {
-    sf::Vector2f difference = getPosition() - player.getPosition();
+    sf::Vector2f difference = player.getPosition() - getPosition();
     
     float distance = std::sqrt(difference.x * difference.x + difference.y * difference.y);
     distance = std::max(1.f, distance);
@@ -23,7 +23,7 @@ void Enemy::updatePosition(Player &player)
     sf::Vector2f normal_direction = difference / distance;
     float speed = std::min(maxSpeed, distance);
 
-    move(normal_direction * speed * 0.02f);
+    move(normal_direction * speed * 0.1f);
 }
 
 
