@@ -8,7 +8,9 @@
 #include "include/Player.h"
 #include "include/Enemy.h"
 #include "include/GameRenderer.h"
+#include "include/Perks.h"
 #include "include/Helpers.h"
+
 
 
 int main()
@@ -20,13 +22,14 @@ int main()
 
     Player player;
     std::vector<Enemy> enemies;
+    Perks perks;
+    perks.addPerk();
 
     for (int i = 0; i < 10; i++)
     {
         enemies.push_back(randomEnemy());
     }
 
-    sf::Vector2i mousePos;
 
     // Main loop
     while (window.isOpen())
@@ -38,12 +41,7 @@ int main()
             // Close the window when the user requests it
             if (event.type == sf::Event::Closed)
                 window.close();
-            if (event.type == sf::Event::MouseMoved)
-            {
-                // handleMovement(event)
-                mousePos = sf::Mouse::getPosition(window);
-                // std::cout << "Mouse position: " << mousePos.x << ", " << mousePos.y << std::endl;
-            }
+
         }
 
         window.clear(COLOR_GRAY);
@@ -56,6 +54,8 @@ int main()
         {
             enemies[i].updatePosition(player);
         }
+
+        perks.usePerks(player, enemies);
         
 
         // Display the contents of the window on the screen

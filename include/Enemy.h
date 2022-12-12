@@ -12,6 +12,8 @@ public:
     Enemy();
 
     void updatePosition(Player &player);
+    float getDistance(Player &player);
+
 };
 
 // function that returns an enemy with a random positoin

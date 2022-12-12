@@ -26,6 +26,13 @@ void Enemy::updatePosition(Player &player)
     move(normal_direction * speed * 0.1f);
 }
 
+float Enemy::getDistance(Player &player)
+{
+    sf::Vector2f difference = player.getPosition() - getPosition();
+    float distance = std::sqrt(difference.x * difference.x + difference.y * difference.y);
+    return distance;
+}
+
 
 Enemy randomEnemy()
 {
